@@ -57,6 +57,7 @@ nitrogen --restore &
 
 trayer --edge top --align right --SetDockType true --SetPartialStrut true \
  --expand true --width 5 --transparent true --tint 0x2f2f2f --height 20 &
-#f8f8f2
+
+picom &
 
 exec xmonad
