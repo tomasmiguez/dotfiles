@@ -60,4 +60,6 @@ trayer --edge top --align right --SetDockType true --SetPartialStrut true \
 
 picom &
 
+dunst &
+
 exec xmonad
