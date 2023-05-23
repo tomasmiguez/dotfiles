@@ -42,3 +42,5 @@ export EDITOR="$VISUAL"
 export BROWSER="firefox"
 
 source ~/.aliases
+
+eval "$(starship init zsh)"
