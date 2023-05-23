@@ -8,6 +8,7 @@ zstyle :compinstall filename '/home/tomiguez/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=10000
@@ -16,3 +17,28 @@ setopt autocd nomatch notify
 unsetopt beep extendedglob
 bindkey -v
 # End of lines configured by zsh-newuser-install
+
+export ZSH="/usr/share/oh-my-zsh"
+
+ZSH_THEME="robbyrussell"
+
+plugins=(
+	zsh-autosuggestions
+	zsh-syntax-highlighting
+	dirhistory
+	git
+	ssh-agent
+	zsh-vi-mode
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# Allow [ or ] wherever you want
+unsetopt nomatch
+
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
+export BROWSER="firefox"
+
+source ~/.aliases
