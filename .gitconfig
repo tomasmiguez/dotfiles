@@ -1,0 +1,44 @@
+[user]
+	email = tomasmiguez99@gmail.com
+	name = Tomas Miguez
+[core]
+	excludesFile = ~/.gitignore_global
+	editor = vim
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[alias]
+	p     = push
+	pc    = push -u origin @
+
+	ac    = !git add . && git commit
+	amend = commit -a --amend --no-edit
+	co    = checkout
+	br    = branch
+	rb    = rebase
+	rbm   = rebase master
+	rbim  = rebase -i master
+
+	brl   = br --sort=-committerdate
+
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[pull]
+	rebase = false
+[rebase]
+	autosquash = true
+[diff]
+	tool = vimdiff
+	colorMoved = default
+[difftool]
+	prompt = false
+[init]
+	defaultBranch = master
+[delta]
+	navigate = true    # use n and N to move between diff sections
+	light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+	line-numbers = true
+[log]
+	abbrevCommit = true
+
