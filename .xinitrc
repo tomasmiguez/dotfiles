@@ -58,7 +58,7 @@ pa-applet &
 nitrogen --restore &
 
 trayer --edge top --align right --SetDockType true --SetPartialStrut true \
- --expand true --width 5 --transparent true --tint 0x2f2f2f --height 20 &
+ --expand true --width 5 --transparent true --tint 0x2f2f2f --alpha 0 --height 20 &
 
 picom &
 
