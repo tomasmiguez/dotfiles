@@ -43,4 +43,5 @@ myXmobarPP = def
 
 myConfig = def 
     { modMask = mod4Mask -- Super key
+    , terminal = "alacritty"
     }
