@@ -3,11 +3,14 @@ module MyXmobar where
 import XMonad.Hooks.StatusBar.PP
 import XMonad.Util.Loggers
 
+import qualified MyColors
+
 myXmobarPP :: PP
 myXmobarPP = def
     { ppSep             = white " | "
     , ppTitleSanitize   = xmobarStrip
-    , ppCurrent         = wrap " " "" . xmobarBorder "Top" "#8be9fd" 2
+    , ppCurrent         = wrap " " "" . xmobarBorder "Top" MyColors.cyan 2
+    , ppVisible         = wrap " " "" . xmobarBorder "Top" MyColors.darkCyan 2
     , ppHidden          = white . wrap " " ""
     , ppHiddenNoWindows = lowWhite . wrap " " ""
     , ppUrgent          = red . wrap (yellow "!") (yellow "!")
@@ -15,19 +18,19 @@ myXmobarPP = def
     , ppExtras          = [logTitles formatFocused formatUnfocused]
     }
   where
-    formatFocused   = wrap (white    "[") (white    "]") . magenta . ppWindow
-    formatUnfocused = wrap (lowWhite "[") (lowWhite "]") . blue    . ppWindow
+    formatFocused   = wrap (white "[") (white "]") . pink   . ppWindow
+    formatUnfocused = wrap (white "[") (white "]") . purple . ppWindow
 
     -- | Windows should have *some* title, which should not not exceed a
     -- sane length.
     ppWindow :: String -> String
     ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 30
 
-    blue, lowWhite, magenta, red, white, yellow :: String -> String
-    magenta  = xmobarColor "#ff79c6" ""
-    blue     = xmobarColor "#bd93f9" ""
-    white    = xmobarColor "#f8f8f2" ""
-    yellow   = xmobarColor "#f1fa8c" ""
-    red      = xmobarColor "#ff5555" ""
-    lowWhite = xmobarColor "#bbbbbb" ""
+    purple, gray, pink, red, white, yellow :: String -> String
+    pink     = xmobarColor MyColors.pink   ""
+    purple   = xmobarColor MyColors.purple ""
+    white    = xmobarColor MyColors.white  ""
+    yellow   = xmobarColor MyColors.yellow ""
+    red      = xmobarColor MyColors.red    ""
+    gray     = xmobarColor MyColors.gray   ""
 
