@@ -19,9 +19,10 @@ Config { overrideRedirect = False
                         ] 10
                     , Run Memory ["--template", "Mem: <usedratio>%"] 10
                     , Run Date "%a %Y-%m-%d <fc=#8be9fd>%H:%M</fc>" "date" 10
-                    , Run XMonadLog
+                    , Run XPropertyLog "_XMONAD_LOG_1"
                     ]
        , sepChar  = "%"
        , alignSep = "}{"
-       , template = "%XMonadLog% }{ %cpu% | %memory% | %SABE% | %date% "
+       , template = "%_XMONAD_LOG_1% }{ %cpu% | %memory% | %SABE% | %date% "
+       , lowerOnStart = True    -- send to bottom of window stack on start
        }

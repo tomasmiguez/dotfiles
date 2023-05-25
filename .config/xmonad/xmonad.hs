@@ -4,13 +4,15 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.StatusBar
 import XMonad.Util.EZConfig
+import XMonad.Hooks.ManageDocks
 
 import MyXmobar
 
 main :: IO ()
 main = xmonad
      . ewmh
-     . withEasySB (statusBarProp "xmobar" (pure myXmobarPP)) defToggleStrutsKey
+     . docks
+     . dynamicEasySBs myBarSpawner
      $ myConfig
 
 myConfig = def

@@ -1,0 +1,28 @@
+Config { overrideRedirect = False
+       , font     = "xft:iosevka-11"
+       , bgColor  = "#2f2f2f"
+       , fgColor  = "#f8f8f2"
+       , position = TopSize L 100 20
+       , commands = [ Run Weather "SABE"
+                        [ "--template", "<weather> <tempC>°C"
+                        , "-L", "0"
+                        , "-H", "25"
+                        , "--low"   , "lightblue"
+                        , "--normal", "#f8f8f2"
+                        , "--high"  , "red"
+                        ] 36000
+                    , Run Cpu
+                        [ "-L", "3"
+                        , "-H", "50"
+                        , "--high"  , "red"
+                        , "--normal", "green"
+                        ] 10
+                    , Run Memory ["--template", "Mem: <usedratio>%"] 10
+                    , Run Date "%a %Y-%m-%d <fc=#8be9fd>%H:%M</fc>" "date" 10
+                    , Run XPropertyLog "_XMONAD_LOG_2"
+                    ]
+       , sepChar  = "%"
+       , alignSep = "}{"
+       , template = "%_XMONAD_LOG_2% }{ %cpu% | %memory% | %SABE% | %date% "
+       , lowerOnStart = True    -- send to bottom of window stack on start
+       }
