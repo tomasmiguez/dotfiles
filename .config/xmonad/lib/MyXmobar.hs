@@ -20,7 +20,6 @@ myXmobarPP = def
     , ppCurrent         = wrap " " "" . xmobarBorder "Top" MyColors.cyan 2
     , ppVisible         = wrap " " "" . xmobarBorder "Top" MyColors.darkCyan 2
     , ppHidden          = white . wrap " " ""
-    , ppHiddenNoWindows = lowWhite . wrap " " ""
     , ppUrgent          = red . wrap (yellow "!") (yellow "!")
     , ppOrder           = \[ws, _, _, wins] -> [ws, "", wins]
     , ppExtras          = [logTitles formatFocused formatUnfocused]
