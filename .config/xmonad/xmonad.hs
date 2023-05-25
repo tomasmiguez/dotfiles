@@ -1,5 +1,6 @@
 import XMonad
 
+import XMonad.Actions.FindEmptyWorkspace
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.StatusBar
 import XMonad.Util.EZConfig
@@ -21,3 +22,11 @@ myConfig = def
     , borderWidth        = 2
     , layoutHook         = myLayout
     }
+    `additionalKeysP`
+    [ ("M-m",       viewEmptyWorkspace)
+    , ("M-S-m",     tagToEmptyWorkspace)
+
+    , ("M-b",       sendMessage ToggleStruts)
+
+    , ("M-<Print>", spawn "flameshot gui")
+    ]
