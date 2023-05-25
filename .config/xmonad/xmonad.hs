@@ -21,6 +21,8 @@ myConfig = def
     , terminal           = "alacritty"
     , borderWidth        = 2
     , layoutHook         = myLayout
+    , normalBorderColor  = "#6297a2"
+    , focusedBorderColor = "#46d9ff"
     }
     `additionalKeysP`
     [ ("M-m",       viewEmptyWorkspace)
