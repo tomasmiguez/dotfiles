@@ -1,6 +1,5 @@
 import XMonad
 
-import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.StatusBar
 import XMonad.Util.EZConfig
