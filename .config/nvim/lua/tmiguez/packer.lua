@@ -25,6 +25,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'tpope/vim-fugitive'
+  use 'github/copilot.vim'
   use {
     'shumphrey/fugitive-gitlab.vim',
     requires = 'tpope/vim-fugitive'
@@ -73,6 +74,10 @@ return require('packer').startup(function(use)
       { 'suketa/nvim-dap-ruby' },
     },
     config = function() require("dapui").setup() end
+  }
+  use {
+    'mfussenegger/nvim-dap-python',
+    config = function() require('dap-python').setup('~/.virtualenvs/debugpy/bin/python') end
   }
   use {
     'lewis6991/gitsigns.nvim',
