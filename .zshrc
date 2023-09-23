@@ -41,6 +41,10 @@ export EDITOR="$VISUAL"
 
 export BROWSER="firefox"
 
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.config/emacs/bin:$PATH"
+
 source ~/.aliases
 
 eval "$(starship init zsh)"
+source /usr/share/nvm/init-nvm.sh
