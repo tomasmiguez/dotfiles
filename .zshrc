@@ -43,6 +43,7 @@ export BROWSER="firefox"
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.config/emacs/bin:$PATH"
+export PATH="$HOME/.ghcup/bin:$PATH"
 
 source ~/.aliases
 
