@@ -76,6 +76,15 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; set opacity
+(add-to-list 'default-frame-alist '(alpha . 97))
+
+(after! projectile
+  (setq projectile-project-search-path '("~/repos/")))
+
+(after! org
+  (setq org-element-use-cache nil))
+;;
 ;; accept completion from copilot and fallback to company
 (use-package! copilot
   :hook (prog-mode . copilot-mode)
@@ -85,12 +94,9 @@
               ("C-TAB" . 'copilot-accept-completion-by-word)
               ("C-<tab>" . 'copilot-accept-completion-by-word)))
 
-(setq projectile-project-search-path '("~/repos/"))
+(after! mu4e
+  (setq mu4e-get-mail-command "offlineimap"))
 
-(after! org
-  (setq org-element-use-cache nil))
-
-(use-package! org-fragtog
-:after org
-:hook (org-mode . org-fragtog-mode)
-)
+;; (use-package! org-fragtog
+;;   :after org
+;;   :hook (org-mode . org-fragtog-mode))
