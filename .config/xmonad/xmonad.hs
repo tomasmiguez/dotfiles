@@ -5,6 +5,7 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.StatusBar
 import XMonad.Util.EZConfig
 import XMonad.Hooks.ManageDocks
+import qualified XMonad.Util.Hacks as Hacks
 
 import MyLayout
 import MyXmobar
@@ -21,6 +22,7 @@ myConfig = def
     , terminal           = "alacritty"
     , borderWidth        = 2
     , layoutHook         = myLayout
+    , handleEventHook    = Hacks.windowedFullscreenFixEventHook
     , normalBorderColor  = "#6297a2"
     , focusedBorderColor = "#46d9ff"
     }
