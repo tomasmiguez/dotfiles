@@ -84,6 +84,20 @@
 
 (after! org
   (setq org-element-use-cache nil))
+
+(use-package! org-roam
+  :config
+  (setq org-roam-complete-everywhere t)
+  (setq org-roam-capture-templates
+   '(("d" "default" plain
+      "%?"
+      :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+      :unnarrowed t)
+   ("b" "book notes" plain
+    "\n* Dramatis Personae\n\n%?* Summary\n\n* Notes"
+    :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+filetags: Book, %^{genre|Fantasy}\n#+author: %^{author}\n")
+    :unnarrowed t))))
+
 ;;
 ;; accept completion from copilot and fallback to company
 (use-package! copilot
