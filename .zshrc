@@ -41,11 +41,17 @@ export EDITOR="$VISUAL"
 
 export BROWSER="firefox"
 
+export GEM_HOME="$(gem env user_gemhome)"
+
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.config/emacs/bin:$PATH"
 export PATH="$HOME/.ghcup/bin:$PATH"
+export PATH="$PATH:$GEM_HOME/bin"
 
 source ~/.aliases
 
 eval "$(starship init zsh)"
 source /usr/share/nvm/init-nvm.sh
+
+source /usr/share/chruby/chruby.sh
+source /usr/share/chruby/auto.sh
