@@ -8,7 +8,7 @@ import XMonad.Util.Loggers
 
 import qualified MyColors
 
-myBarSpawner :: ScreenId -> IO StatusBarConfig
+myBarSpawner :: ScreenId -> X StatusBarConfig
 myBarSpawner 0 = pure $ statusBarPropTo "_XMONAD_LOG_1" "xmobar -x 0 ~/.config/xmobar/xmobarrc_0" (pure myXmobarPP)
 myBarSpawner 1 = pure $ statusBarPropTo "_XMONAD_LOG_2" "xmobar -x 1 ~/.config/xmobar/xmobarrc_1" (pure myXmobarPP)
 myBarSpawner _ = mempty -- nothing on the rest of the screens
