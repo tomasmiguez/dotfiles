@@ -25,6 +25,22 @@ return require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'tpope/vim-fugitive'
+  use {
+    'kristijanhusak/vim-dadbod-ui',
+    requires = {
+      { 'tpope/vim-dadbod' },
+      { 'kristijanhusak/vim-dadbod-completion' },
+    },
+    cmd = {
+      'DBUI',
+      'DBUIToggle',
+      'DBUIAddConnection',
+      'DBUIFindBuffer',
+    },
+    run = function()
+      vim.g.db_ui_use_nerd_fonts = 1
+    end,
+  }
   use 'github/copilot.vim'
   use {
     'shumphrey/fugitive-gitlab.vim',
