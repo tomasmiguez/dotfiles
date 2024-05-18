@@ -87,6 +87,7 @@ return require('packer').startup(function(use)
     'rcarriga/nvim-dap-ui',
     requires = {
       { 'mfussenegger/nvim-dap' },
+      { 'nvim-neotest/nvim-nio' },
       { 'suketa/nvim-dap-ruby' },
     },
     config = function() require("dapui").setup() end
@@ -119,7 +120,7 @@ return require('packer').startup(function(use)
   use 'hoob3rt/lualine.nvim'
   use {
     'lukas-reineke/indent-blankline.nvim',
-    config = function() require("indent_blankline").setup({ show_trailing_blankline_indent = false }) end
+    config = function() require("ibl").setup() end
   }
   use  'xiyaowong/nvim-transparent'
   use { 'kartikp10/noctis.nvim', requires = { 'rktjmp/lush.nvim' } }
