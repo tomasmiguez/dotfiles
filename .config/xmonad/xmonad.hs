@@ -33,4 +33,6 @@ myConfig = def
     , ("M-b",       sendMessage ToggleStruts)
 
     , ("M-<Print>", spawn "flameshot gui")
+
+    , ("M-f", spawn "~/scripts/dmenu-open-project-nvim")
     ]
