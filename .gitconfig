@@ -3,7 +3,7 @@
 	name = Tomas Miguez
 [core]
 	excludesFile = ~/.gitignore_global
-	editor = vim
+	editor = nvim
 	pager = delta
 [interactive]
 	diffFilter = delta --color-only
