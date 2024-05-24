@@ -15,12 +15,16 @@
 	amend = commit -a --amend --no-edit
 	co    = checkout
 	br    = branch
-	rb    = rebase
-	rbm   = rebase master
+
+  rb    = rebase
+  rbi   = rebase -i
+  rbm   = rebase master
+  rbom  = rebase origin/master
 	rbim  = rebase -i master
+	rbiom = rebase -i origin/master
 
-	brl   = br --sort=-committerdate
-
+  brl   = br --sort=-committerdate
+  cobrl = !git co $(git brl | fzf)
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
