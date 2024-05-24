@@ -3,7 +3,7 @@
 shopt -s dotglob
 shopt -s nullglob
 
-directories=(~/repos/*/)
+directories=(~/repos/*/*/)
 
 choice=$(printf '%s\n' "${directories[@]}" | sort | dmenu -i -l 10 -p "Project:")
 
