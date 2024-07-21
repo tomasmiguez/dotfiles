@@ -101,7 +101,10 @@ return require('packer').startup(function(use)
     'lewis6991/gitsigns.nvim',
     config = function() require('gitsigns').setup({}) end
   }
-  use 'ggandor/lightspeed.nvim'
+  use {
+    'ggandor/leap.nvim',
+    config = function() require('leap').create_default_mappings() end
+  }
   use {
     "windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
@@ -111,6 +114,7 @@ return require('packer').startup(function(use)
     'sindrets/diffview.nvim',
     requires = 'nvim-lua/plenary.nvim'
   }
+  use 'uga-rosa/translate.nvim'
 
   -- Appearance
   -- use {
