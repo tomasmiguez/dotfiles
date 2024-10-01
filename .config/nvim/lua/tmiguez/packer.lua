@@ -45,6 +45,10 @@ return require('packer').startup(function(use)
     'shumphrey/fugitive-gitlab.vim',
     requires = 'tpope/vim-fugitive'
   }
+  use {
+    'tpope/vim-rhubarb',
+    requires = 'tpope/vim-fugitive'
+  }
   use 'qpkorr/vim-bufkill'
   use 'kassio/neoterm'
   use {
