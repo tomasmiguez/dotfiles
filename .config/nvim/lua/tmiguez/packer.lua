@@ -118,6 +118,13 @@ return require('packer').startup(function(use)
     requires = 'nvim-lua/plenary.nvim'
   }
   use 'uga-rosa/translate.nvim'
+  use {
+    'lervag/vimtex',
+    config = function ()
+      vim.g.vimtex_view_method = 'zathura'
+    end
+  }
+  -- use 'hotwatermorning/auto-git-diff'
 
   -- Appearance
   -- use {
