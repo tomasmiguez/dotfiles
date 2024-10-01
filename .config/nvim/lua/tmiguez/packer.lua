@@ -41,7 +41,6 @@ return require('packer').startup(function(use)
       vim.g.db_ui_use_nerd_fonts = 1
     end,
   }
-  use 'github/copilot.vim'
   use {
     'shumphrey/fugitive-gitlab.vim',
     requires = 'tpope/vim-fugitive'
