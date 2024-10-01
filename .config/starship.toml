@@ -4,56 +4,14 @@
 format = """\
         $username\
         $hostname\
-        $shlvl\
-        $singularity\
-        $kubernetes\
         $directory\
         $git_branch\
         $git_commit\
         $git_state\
         $git_status\
-        $hg_branch\
-        $docker_context\
-        $package\
-        (↓ Toolchain version modules ↓)\
-        $cmake\
-        $dart\
-        $dotnet\
-        $elixir\
-        $elm\
-        $erlang\
-        $golang\
-        $helm\
-        $java\
-        $julia\
-        $nim\
-        $nodejs\
-        $ocaml\
-        $perl\
-        $php\
-        $purescript\
-        $python\
-        $ruby\
-        $rust\
-        $swift\
-        $terraform\
-        $zig\
-        (↑ Toolchain version modules ↑)\
-        $nix_shell\
-        $conda\
-        $memory_usage\
-        $aws\
-        $gcloud\
-        $env_var\
-        $crystal\
-        $cmd_duration\
-        $custom\
-        (↑ above input line ↑)\
-        $line_break\
-        (↓ on input line ↓)\
         $jobs\
         $battery\
-        $time\
+        $cmd_duration\
         $status\
         $character\
     """
