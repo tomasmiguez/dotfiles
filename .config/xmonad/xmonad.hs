@@ -5,6 +5,7 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.StatusBar
 import XMonad.Util.EZConfig
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.WindowSwallowing
 import qualified XMonad.Util.Hacks as Hacks
 
 import MyLayout
@@ -22,7 +23,8 @@ myConfig = def
     , terminal           = "alacritty"
     , borderWidth        = 2
     , layoutHook         = myLayout
-    , handleEventHook    = Hacks.windowedFullscreenFixEventHook
+    , handleEventHook    = swallowEventHook (className =? "Alacritty") (return True)
+                         <+> Hacks.windowedFullscreenFixEventHook
     , normalBorderColor  = "#6297a2"
     , focusedBorderColor = "#46d9ff"
     }
