@@ -98,19 +98,76 @@
     :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+filetags: Book, %^{genre|Fantasy}\n#+author: %^{author}\n")
     :unnarrowed t))))
 
-;;
-;; accept completion from copilot and fallback to company
-(use-package! copilot
-  :hook (prog-mode . copilot-mode)
-  :bind (:map copilot-completion-map
-              ("<tab>" . 'copilot-accept-completion)
-              ("TAB" . 'copilot-accept-completion)
-              ("C-TAB" . 'copilot-accept-completion-by-word)
-              ("C-<tab>" . 'copilot-accept-completion-by-word)))
+;; https://www.erichgrunewald.com/posts/setting-up-gmail-in-doom-emacs-using-mbsync-and-mu4e/
+;; (after! mu4e
+;;         (set-email-account!
+;;         "gmail"
+;;         '((mu4e-sent-folder       . "/[Gmail]/Sent Mail")
+;;         (mu4e-trash-folder      . "/[Gmail]/Bin")
+;;         (smtpmail-smtp-user     . "tmiguez@fu.do"))
+;;         t))
 
+;; (setq mail-host-address "fu.do"
+;;       send-mail-function 'smtpmail-send-it    ; should not be modified
+;;       smtpmail-smtp-server "smtp.gmail.com" ; host running SMTP server
+;;       smtpmail-smtp-service 587               ; SMTP service port number
+;;       smtpmail-stream-type 'starttls)         ; type of SMTP connections to use
+
+(setq message-send-mail-function 'smtpmail-send-it
+      smtpmail-smtp-user "tmiguez@fu.do"
+      smtpmail-stream-type 'starttls
+      smtpmail-default-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-service 587)
+
+(setq smtpmail-debug-info t
+      smtpmail-debug-verb t)
+
+;; don't keep message buffers around
+;; (setq message-kill-buffer-on-exit t)
+
+(setq
+   user-mail-address "tmiguez@fu.do"
+   user-full-name  "Tomás Miguez")
+
+;; https://www.djcbsoftware.nl/code/mu/mu4e/Gmail-configuration.html#Gmail-configuration
 (after! mu4e
-  (setq mu4e-get-mail-command "offlineimap"))
+        (setq mu4e-get-mail-command "mbsync gmail"
+        ;; use mu4e for e-mail in emacs
+        mail-user-agent 'mu4e-user-agent
+        ;; don't save message to Sent Messages, Gmail/IMAP takes care of this
+        mu4e-sent-messages-behavior 'delete
+        ;; get emails and index every 2 minutes
+        mu4e-update-interval 120
+        ;; send emails with format=flowed
+        mu4e-compose-format-flowed t
+        ;; no need to run cleanup after indexing for gmail
+        mu4e-index-cleanup nil
+        mu4e-index-lazy-check t
+        ;; more sensible date format
+        mu4e-headers-date-format "%y.%m.%d"
+        mu4e-sent-folder "/[Gmail]/Sent Mail"
+        mu4e-trash-folder "/[Gmail]/Bin"
+        ;; Custom bookmarks
+        mu4e-bookmarks
+        '((:name "Unread messages"
+           :query "flag:unread AND NOT flag:trashed AND maildir:/Inbox"
+           :key ?u)
+          (:name "Inbox"
+           :query "NOT flag:trashed AND maildir:/Inbox"
+           :key ?i)))
+        ;; setup some handy shortcuts
+        ;; you can quickly switch to your Inbox -- press ``ji''
+        ;; then, when you want archive some messages, move them to
+        ;; the 'All Mail' folder by pressing ``ma''.
+        mu4e-maildir-shortcuts
+        '((:maildir "/INBOX"              :key ?i)
+          (:maildir "/[gmail].sent mail"  :key ?s)
+          (:maildir "/[gmail].trash"      :key ?t)
+          (:maildir "/[gmail].all mail"   :key ?a)))
 
-;; (use-package! org-fragtog
-;;   :after org
-;;   :hook (org-mode . org-fragtog-mode))
+;; https://github.com/doomemacs/doomemacs/issues/4820
+(with-eval-after-load "mm-decode"
+  (add-to-list 'mm-discouraged-alternatives "text/html")
+  (add-to-list 'mm-discouraged-alternatives "text/richtext"))
+
