@@ -11,7 +11,7 @@ Config { overrideRedirect = False
                         , "--normal", "#f8f8f2"
                         , "--high"  , "red"
                         ] 36000
-                    , Run Cpu
+                    , Run MultiCpu
                         [ "-L", "3"
                         , "-H", "50"
                         , "--high"  , "red"
@@ -23,6 +23,6 @@ Config { overrideRedirect = False
                     ]
        , sepChar  = "%"
        , alignSep = "}{"
-       , template = "%_XMONAD_LOG_2% }{ %cpu% | %memory% | %SABE% | %date% "
+       , template = "%_XMONAD_LOG_2% }{ %multicpu% | %memory% | %SABE% | %date% "
        , lowerOnStart = True    -- send to bottom of window stack on start
        }
