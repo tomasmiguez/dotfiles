@@ -7,6 +7,8 @@ alias mkdir="mkdir -pv"
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 
 alias vim="nvim"
+alias vimdiff='nvim -d'
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+
