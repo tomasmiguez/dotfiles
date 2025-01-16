@@ -124,6 +124,7 @@ return require('packer').startup(function(use)
       vim.g.vimtex_view_method = 'zathura'
     end
   }
+  use 'danchoi/ri.vim'
   -- use 'hotwatermorning/auto-git-diff'
 
   -- Appearance
