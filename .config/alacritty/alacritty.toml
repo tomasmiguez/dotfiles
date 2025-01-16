@@ -75,7 +75,7 @@ history = 5000
 
 [window]
 dynamic_title = true
-opacity = 0.95
+opacity = 0.90
 
 [window.class]
 general = "Alacritty"
