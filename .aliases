@@ -4,7 +4,7 @@ alias rm="rm -i"
 
 alias mkdir="mkdir -pv"
 
-alias config='/usr/bin/git --git-dir=$HOME/.config_repo/ --work-tree=$HOME'
+alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 
 alias vim="nvim"
 
