@@ -111,14 +111,8 @@ return require('packer').startup(function(use)
     end
   }
   use 'danchoi/ri.vim'
-  -- use 'hotwatermorning/auto-git-diff'
 
   -- Appearance
-  -- use {
-  --   'krivahtoo/silicon.nvim',
-  --   run = './install.sh',
-  --   config = function() require('silicon').setup { font = 'Iosevka Term=20', theme = 'Dracula' } end
-  -- }
   use 'hoob3rt/lualine.nvim'
   use {
     'lukas-reineke/indent-blankline.nvim',
