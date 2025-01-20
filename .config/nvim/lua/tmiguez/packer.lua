@@ -58,30 +58,15 @@ return require('packer').startup(function(use)
     -- tar curl git
   }
   use { 'szw/vim-maximizer' }
+  use { 'neovim/nvim-lspconfig' }
+  use { 'hrsh7th/nvim-cmp' }
+  use { 'hrsh7th/cmp-nvim-lsp' }
   use {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v3.x',
-    requires = {
-      -- LSP Support
-      { 'neovim/nvim-lspconfig' },
-      { 'williamboman/mason.nvim' },
-      { 'williamboman/mason-lspconfig.nvim' },
-
-      -- Autocompletion
-      { 'hrsh7th/nvim-cmp' },
-      { 'hrsh7th/cmp-buffer' },
-      { 'hrsh7th/cmp-path' },
-      { 'saadparwaiz1/cmp_luasnip' },
-      { 'hrsh7th/cmp-nvim-lsp' },
-      { 'hrsh7th/cmp-nvim-lua' },
-
-      -- Snippets
-      { 'L3MON4D3/LuaSnip' },
-      { 'rafamadriz/friendly-snippets' },
-    }
-    -- Additional dependencies:
-    -- git curl wget unzip tar gzip
+    'L3MON4D3/LuaSnip',
+    tag = 'v2.*',
+    run = 'make install_jsregexp',
   }
+  use 'saadparwaiz1/cmp_luasnip'
   use 'mfussenegger/nvim-dap'
   use {
     'suketa/nvim-dap-ruby',
