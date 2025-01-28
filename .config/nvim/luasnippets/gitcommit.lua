@@ -29,10 +29,10 @@ return {
     )
   ),
   s(
-    { trig="fixup" },
+    { trig="fix" },
     fmt(
       [[
-      fixup({}): {}
+      fix({}): {}
 
       {}
       ]],

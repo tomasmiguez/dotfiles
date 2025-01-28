@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 require'lspconfig'.solargraph.setup {
-  cmd = { 'bundle', 'exec', 'solargraph', 'stdio' }
+  cmd = { 'solargraph', 'stdio' }
 }
 
 require'lspconfig'.lua_ls.setup {
